@@ -1,4 +1,4 @@
-const Ev = require('../models/ev')
+const Ev = require('../models/EV')
 const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, NotFoundError } = require('../errors')
 
