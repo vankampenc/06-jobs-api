@@ -8,6 +8,7 @@ import {
 } from "./index.js";
 import { showLoginRegister } from "./loginRegister.js";
 import { showAddEdit } from "./addEdit.js";
+import { deleteEntry } from "./delete.js";
 
 let evsDiv = null;
 let evsTable = null;
@@ -34,7 +35,9 @@ export const handleEvs = () => {
         showLoginRegister();
       } else if (e.target.classList.contains("editButton")) {
         message.textContent = "";
-        showAddEdit(e.target.dataset.id);
+        showAddEdit(e.target.dataset.id); 
+      } else if (e.target.classList.contains("deleteButton")) {
+        deleteEntry(e.target.dataset.id);
       }
     }
   });
