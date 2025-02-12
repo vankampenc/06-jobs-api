@@ -35,11 +35,11 @@ const updateEV = async (req, res) => {
 }
 const deleteEV = async (req, res) => {
     const { user: { userID }, params: { id: evID } } = req
-    const ev = await Ev.findByIdAndRemove({ _id: evID, createdBy: userID })
+    const ev = await Ev.findOneAndRemove({ _id: evID, createdBy: userID })
     if (!ev) {
         throw new NotFoundError(`No EV with id ${evID}`)
     }
-    res.status(StatusCodes.OK).send()
+    res.status(StatusCodes.OK).json({ msg: "The entry was deleted." });
 }
 module.exports = {
     getAllEVs,
